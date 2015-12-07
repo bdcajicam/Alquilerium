@@ -1,0 +1,3 @@
+# Module unfried_isii
+# RPC service class, partial path of RPC policy file
+co.edu.unal.isii.client.GreetingService, 9B3807E5AF103E84A4257935A53C091F.gwt.rpc

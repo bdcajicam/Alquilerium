@@ -1,0 +1,198 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://alquilerium.appspot.com/_ah/api",
+  "name" : "clienteendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://alquilerium.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "edu.co",
+  "ownerName" : "edu.co",
+  "packagePath" : "unal.isii.client",
+  "methods" : {
+    "clienteendpoint.getCliente" : {
+      "path" : "cliente/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "co.edu.unal.isii.client.ClienteEndpoint.getCliente",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "clienteendpoint.insertCliente" : {
+      "path" : "cliente",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "co.edu.unal.isii.client.ClienteEndpoint.insertCliente",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "clienteendpoint.listCliente" : {
+      "path" : "cliente",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "co.edu.unal.isii.client.ClienteEndpoint.listCliente",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "clienteendpoint.removeCliente" : {
+      "path" : "cliente/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "co.edu.unal.isii.client.ClienteEndpoint.removeCliente",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "clienteendpoint.updateCliente" : {
+      "path" : "cliente",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "co.edu.unal.isii.client.ClienteEndpoint.updateCliente",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Cliente" : {
+        "id" : "Cliente",
+        "type" : "object",
+        "properties" : {
+          "cedula" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "nombre" : {
+            "type" : "string"
+          },
+          "celular" : {
+            "type" : "string"
+          },
+          "direccion" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Cliente" : {
+        "id" : "CollectionResponse_Cliente",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Cliente"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "co.edu.unal.isii.client.ClienteEndpoint.getCliente" : {
+        "response" : {
+          "$ref" : "Cliente"
+        }
+      },
+      "co.edu.unal.isii.client.ClienteEndpoint.insertCliente" : {
+        "request" : {
+          "$ref" : "Cliente"
+        },
+        "response" : {
+          "$ref" : "Cliente"
+        }
+      },
+      "co.edu.unal.isii.client.ClienteEndpoint.listCliente" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Cliente"
+        }
+      },
+      "co.edu.unal.isii.client.ClienteEndpoint.removeCliente" : {
+      },
+      "co.edu.unal.isii.client.ClienteEndpoint.updateCliente" : {
+        "request" : {
+          "$ref" : "Cliente"
+        },
+        "response" : {
+          "$ref" : "Cliente"
+        }
+      }
+    }
+  }
+}

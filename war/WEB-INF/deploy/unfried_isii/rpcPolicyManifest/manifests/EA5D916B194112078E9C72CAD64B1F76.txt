@@ -1,0 +1,2 @@
+serviceClass: co.edu.unal.isii.client.GreetingService
+path: 9B3807E5AF103E84A4257935A53C091F.gwt.rpc
